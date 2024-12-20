@@ -1,6 +1,0 @@
-[submodule "themes/re-terminal"]
-	path = themes/re-terminal
-	url = https://github.com/mirus-ua/hugo-theme-re-terminal
-[submodule "themes/paper"]
-	path = themes/paper
-	url = https://github.com/adityatelange/hugo-PaperMod
