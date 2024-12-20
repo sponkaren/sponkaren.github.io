@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Rope Simulation in C&#43;&#43; | Portfolio, Gustaf Engsner</title>
+<meta name="keywords" content="gameplay, physics">
+<meta name="description" content="Personal project implemented in group assignment &ndash;&gt;">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/rope_sim/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7b92bf4867c997b58ec50f63451b83777173d5bd5593376852abd85746d09d71.css" integrity="sha256-e5K/SGfJl7WOxQ9jRRuDd3Fz1b1VkzdoUqvYV0bQnXE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rope_sim/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Rope Simulation in C&#43;&#43;" />
+<meta property="og:description" content="Personal project implemented in group assignment &ndash;&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/rope_sim/" /><meta property="article:section" content="posts" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rope Simulation in C&#43;&#43;"/>
+<meta name="twitter:description" content="Personal project implemented in group assignment &ndash;&gt;"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Rope Simulation in C++",
+      "item": "http://localhost:1313/posts/rope_sim/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Rope Simulation in C++",
+  "name": "Rope Simulation in C\u002b\u002b",
+  "description": "Personal project implemented in group assignment \u0026ndash;\u0026gt;",
+  "keywords": [
+    "gameplay", "physics"
+  ],
+  "articleBody": "This is a personal project that I ended up adding to a group project at TGA. I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine. Here’s a quick summary of how it works.\nThe Simulation The simulation uses nodes and springs. The nodes are dynamic physics objects, meaning that they have a mass and are affected by forces added to them. Springs connect the nodes and apply force to them based on a relationship between the spring’s natural- and current length. Showcasing the functionality of changing spring lenfth and adding/removing nodes in run time // Looping over the nodes, calculating force added by springs // index1, index2 - Indexes of nodes connected to the spring spring.vector = myNodes[index1].position - myNodes[index2].position; spring.direction = spring.vector.GetNormalized(); float tooLongBy = spring.vector.Length() - MAX_LENGTH; if (0.f \u003c tooLongBy) { myNodes[index1].posistion -= spring.direction * tooLongBy; spring.vector = myNodes[index1].position - myNodes[inded2].position; } float spring.Length = spring.vector.Length() - SPRING_LENGTH; Vector3 springForce = SPRING_STIFFNESS * spring.length * spring.direction; myNodes[index1].AddVelocity(springForce); myNodes[index2].AddVelocity(-springForce); The Rope in Game The rope is an animated model that I created in Blender. Based on the simulation data I update the pose of the rope model. The rope model does not handle the larger angels perfectly, which I believe could be solved with some hinge joints. Either way, this is what made it into the group project, and I’m happy with how it turned out.\n// Looping over the the skeleton of the rope mesh, // calculating the joint transforms based on the simulation Vector3 forward = springs[springIndex].dir; Vector3 up = { 0.f, 1.f, 0.f }; up = (up - forward.Dot(forward) * forward).GetNormalized(); Vector3 right = upTemp.Cross(up); Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward); Matrix4x4 jointRotation = CreateRotation(q.GetEulerAnglesDegrees()); Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position); modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition; Credits/ inspiration Video going over basic rope simulation\n",
+  "wordCount" : "310",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/rope_sim/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Portfolio, Gustaf Engsner",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Portfolio, Gustaf Engsner (Alt + H)">Portfolio, Gustaf Engsner</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Rope Simulation in C&#43;&#43;
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><p>This is a personal project that I ended up adding to a group project at TGA.<br/>
+I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine.<br/>
+Here&rsquo;s a quick summary of how it works.</p>
+<h3 id="the-simulation">The Simulation<a hidden class="anchor" aria-hidden="true" href="#the-simulation">#</a></h3>
+<p>The simulation uses <strong>nodes</strong> and <strong>springs</strong>.<br/>
+The <strong>nodes</strong> are dynamic physics objects, meaning that they have a mass and are affected by forces added to them.<br/>
+<strong>Springs</strong> connect the nodes and apply force to them based on a relationship between the spring&rsquo;s natural- and current length.
+<img loading="lazy" src="../../gifs/rope2D.gif" alt="Rope Test"  />
+</p>
+<h5 id="showcasing-the-functionality-of-changing-spring-lenfth-and-addingremoving-nodes-in-run-time"><em>Showcasing the functionality of changing spring lenfth and adding/removing nodes in run time</em><a hidden class="anchor" aria-hidden="true" href="#showcasing-the-functionality-of-changing-spring-lenfth-and-addingremoving-nodes-in-run-time">#</a></h5>
+<br/>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// Looping over the nodes, calculating force added by springs
+</span></span></span><span class="line"><span class="cl"><span class="c1">// index1, index2 - Indexes of nodes connected to the spring
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">spring</span><span class="p">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">position</span> <span class="o">-</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index2</span><span class="p">].</span><span class="n">position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">spring</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">spring</span><span class="p">.</span><span class="n">vector</span><span class="p">.</span><span class="nf">GetNormalized</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">tooLongBy</span> <span class="o">=</span> <span class="n">spring</span><span class="p">.</span><span class="n">vector</span><span class="p">.</span><span class="nf">Length</span><span class="p">()</span> <span class="o">-</span> <span class="n">MAX_LENGTH</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="mf">0.f</span> <span class="o">&lt;</span> <span class="n">tooLongBy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">posistion</span> <span class="o">-=</span> <span class="n">spring</span><span class="p">.</span><span class="n">direction</span> <span class="o">*</span> <span class="n">tooLongBy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">spring</span><span class="p">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">position</span> <span class="o">-</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">inded2</span><span class="p">].</span><span class="n">position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">spring</span><span class="p">.</span><span class="n">Length</span> <span class="o">=</span> <span class="n">spring</span><span class="p">.</span><span class="n">vector</span><span class="p">.</span><span class="nf">Length</span><span class="p">()</span> <span class="o">-</span> <span class="n">SPRING_LENGTH</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">springForce</span> <span class="o">=</span> <span class="n">SPRING_STIFFNESS</span> <span class="o">*</span> <span class="n">spring</span><span class="p">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">spring</span><span class="p">.</span><span class="n">direction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="nf">AddVelocity</span><span class="p">(</span><span class="n">springForce</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">myNodes</span><span class="p">[</span><span class="n">index2</span><span class="p">].</span><span class="nf">AddVelocity</span><span class="p">(</span><span class="o">-</span><span class="n">springForce</span><span class="p">);</span>
+</span></span></code></pre></div><br/>
+<h3 id="the-rope-in-game">The Rope in Game<a hidden class="anchor" aria-hidden="true" href="#the-rope-in-game">#</a></h3>
+<p>The rope is an animated model that I created in Blender.<br/>
+Based on the simulation data I update the pose of the rope model.<br/>
+The rope model does not handle the larger angels perfectly, which I believe could be solved with some hinge joints.<br/>
+Either way, this is what made it into the group project, and I&rsquo;m happy with how it turned out.</p>
+<p><img loading="lazy" src="../../gifs/ropeInGame.gif" alt="Rope In Game"  />
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// Looping over the the skeleton of the rope mesh,
+</span></span></span><span class="line"><span class="cl"><span class="c1">// calculating the joint transforms based on the simulation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">forward</span> <span class="o">=</span> <span class="n">springs</span><span class="p">[</span><span class="n">springIndex</span><span class="p">].</span><span class="n">dir</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">up</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.f</span><span class="p">,</span> <span class="mf">1.f</span><span class="p">,</span> <span class="mf">0.f</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">up</span> <span class="o">=</span> <span class="p">(</span><span class="n">up</span> <span class="o">-</span> <span class="n">forward</span><span class="p">.</span><span class="nf">Dot</span><span class="p">(</span><span class="n">forward</span><span class="p">)</span> <span class="o">*</span> <span class="n">forward</span><span class="p">).</span><span class="nf">GetNormalized</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">right</span> <span class="o">=</span> <span class="n">upTemp</span><span class="p">.</span><span class="nf">Cross</span><span class="p">(</span><span class="n">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Quaternion</span> <span class="n">q</span> <span class="o">=</span> <span class="nf">CreateFromOrthonormalBasisVectors</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="n">forward</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Matrix4x4</span> <span class="n">jointRotation</span> <span class="o">=</span> <span class="nf">CreateRotation</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="nf">GetEulerAnglesDegrees</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">Matrix4x4</span> <span class="n">jointPosition</span> <span class="o">=</span> <span class="nf">CreateTranslationMatrix</span><span class="p">(</span><span class="n">myNodes</span><span class="p">[</span><span class="n">nodeIndex</span><span class="p">].</span><span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">modelPose</span><span class="p">.</span><span class="n">JointTransforms</span><span class="p">[</span><span class="n">joinIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">jointRotation</span> <span class="o">*</span> <span class="n">jointPosition</span><span class="p">;</span>
+</span></span></code></pre></div><h3 id="credits-inspiration">Credits/ inspiration<a hidden class="anchor" aria-hidden="true" href="#credits-inspiration">#</a></h3>
+<p><a href="https://youtu.be/0WaDxYuD9S8?si=kiFzpYAY5c4veVde">Video</a> going over basic rope simulation</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/gameplay/">Gameplay</a></li>
+      <li><a href="http://localhost:1313/tags/physics/">Physics</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/about_me/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>About Me</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© <a href="https://github.com/adityatelange/hugo-PaperMod/graphs/contributors">PaperMod Contributors</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

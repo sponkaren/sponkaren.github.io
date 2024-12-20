@@ -1,0 +1,8 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Porfolio of Gustaf Engsner'
+[params]
+  subtitle = 'The Best Widgets on Earth'
+  [params.contact]
+    email = 'gustaf.engsner@gmail.com'
+    phone = '+46 734 41 24 51'
