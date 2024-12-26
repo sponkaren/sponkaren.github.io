@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Rope Simulation in C&#43;&#43; | Portfolio, Gustaf Engsner</title>
-<meta name="keywords" content="gameplay, physics">
+<meta name="keywords" content="gameplay, physics, group work">
 <meta name="description" content="Personal project implemented in group assignment &ndash;&gt;">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/rope_sim/">
@@ -95,10 +95,10 @@
   "name": "Rope Simulation in C\u002b\u002b",
   "description": "Personal project implemented in group assignment \u0026ndash;\u0026gt;",
   "keywords": [
-    "gameplay", "physics"
+    "gameplay", "physics", "group work"
   ],
-  "articleBody": "This is a personal project that I ended up adding to a group project at TGA. I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine. Here’s a quick summary of how it works.\nThe Simulation The simulation uses nodes and springs. The nodes are dynamic physics objects, meaning that they have a mass and are affected by forces added to them. Springs connect the nodes and apply force to them based on a relationship between the spring’s natural- and current length. Showcasing the functionality of changing spring lenfth and adding/removing nodes in run time // Looping over the nodes, calculating force added by springs // index1, index2 - Indexes of nodes connected to the spring spring.vector = myNodes[index1].position - myNodes[index2].position; spring.direction = spring.vector.GetNormalized(); float tooLongBy = spring.vector.Length() - MAX_LENGTH; if (0.f \u003c tooLongBy) { myNodes[index1].posistion -= spring.direction * tooLongBy; spring.vector = myNodes[index1].position - myNodes[inded2].position; } float spring.Length = spring.vector.Length() - SPRING_LENGTH; Vector3 springForce = SPRING_STIFFNESS * spring.length * spring.direction; myNodes[index1].AddVelocity(springForce); myNodes[index2].AddVelocity(-springForce); The Rope in Game The rope is an animated model that I created in Blender. Based on the simulation data I update the pose of the rope model. I’m happy with how it turned out.\n// Looping over the the skeleton of the rope mesh, // calculating the joint transforms based on the simulation Vector3 forward = springs[springIndex].dir; Vector3 up = { 0.f, 1.f, 0.f }; up = (up - forward.Dot(forward) * forward).GetNormalized(); Vector3 right = upTemp.Cross(up); Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward); Matrix4x4 jointRotation = CreateRotation(q.GetEulerAnglesDegrees()); Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position); modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition; Credits/ inspiration Video going over basic rope simulation\n",
-  "wordCount" : "278",
+  "articleBody": "This is a personal project that I ended up adding to a group project at TGA. I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine. Here’s a quick summary of how it works.\nThe Simulation The simulation uses nodes and springs. The nodes are dynamic physics objects, meaning that they have a mass and are affected by forces added to them. Springs connect the nodes and apply force to them based on a relationship between the spring’s natural- and current length. Showcasing the functionality of changing spring length and adding/removing nodes in run time // Looping over the nodes, calculating force added by springs // index1, index2 - Indexes of nodes connected to the spring spring.vector = myNodes[index1].position - myNodes[index2].position; spring.direction = spring.vector.GetNormalized(); float tooLongBy = spring.vector.Length() - MAX_LENGTH; if (0.f \u003c tooLongBy) { myNodes[index1].posistion -= spring.direction * tooLongBy; spring.vector = myNodes[index1].position - myNodes[inded2].position; } float spring.Length = spring.vector.Length() - SPRING_LENGTH; Vector3 springForce = SPRING_STIFFNESS * spring.length * spring.direction; myNodes[index1].AddVelocity(springForce); myNodes[index2].AddVelocity(-springForce); The Rope in Game The rope is an animated model that I created in Blender. Based on the simulation data I update the pose of the rope model. This is how it turned out.\n// Looping over the the skeleton of the rope mesh, // calculating the joint transforms based on the simulation Vector3 forward = springs[springIndex].dir; Vector3 up = { 0.f, 1.f, 0.f }; up = (up - forward.Dot(forward) * forward).GetNormalized(); Vector3 right = upTemp.Cross(up); Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward); Matrix4x4 jointRotation = CreateRotation(q.GetEulerAnglesDegrees()); Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position); modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition; Credits/ inspiration Video going over basic rope simulation\n",
+  "wordCount" : "277",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
@@ -182,7 +182,7 @@ The <strong>nodes</strong> are dynamic physics objects, meaning that they have a
 <strong>Springs</strong> connect the nodes and apply force to them based on a relationship between the spring&rsquo;s natural- and current length.
 <img loading="lazy" src="../../gifs/rope2D.gif" alt="Rope Test"  />
 </p>
-<h5 id="showcasing-the-functionality-of-changing-spring-lenfth-and-addingremoving-nodes-in-run-time"><em>Showcasing the functionality of changing spring lenfth and adding/removing nodes in run time</em><a hidden class="anchor" aria-hidden="true" href="#showcasing-the-functionality-of-changing-spring-lenfth-and-addingremoving-nodes-in-run-time">#</a></h5>
+<h5 id="showcasing-the-functionality-of-changing-spring-length-and-addingremoving-nodes-in-run-time"><em>Showcasing the functionality of changing spring length and adding/removing nodes in run time</em><a hidden class="anchor" aria-hidden="true" href="#showcasing-the-functionality-of-changing-spring-length-and-addingremoving-nodes-in-run-time">#</a></h5>
 <br/>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// Looping over the nodes, calculating force added by springs
 </span></span></span><span class="line"><span class="cl"><span class="c1">// index1, index2 - Indexes of nodes connected to the spring
@@ -206,7 +206,7 @@ The <strong>nodes</strong> are dynamic physics objects, meaning that they have a
 <h3 id="the-rope-in-game">The Rope in Game<a hidden class="anchor" aria-hidden="true" href="#the-rope-in-game">#</a></h3>
 <p>The rope is an animated model that I created in Blender.<br/>
 Based on the simulation data I update the pose of the rope model.<br/>
-I&rsquo;m happy with how it turned out.</p>
+This is how it turned out.</p>
 <p><img loading="lazy" src="../../gifs/ropeInGame.gif" alt="Rope In Game"  />
 </p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// Looping over the the skeleton of the rope mesh,
@@ -231,6 +231,7 @@ I&rsquo;m happy with how it turned out.</p>
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/gameplay/">Gameplay</a></li>
       <li><a href="http://localhost:1313/tags/physics/">Physics</a></li>
+      <li><a href="http://localhost:1313/tags/group-work/">Group Work</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/physics_engine/">

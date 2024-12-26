@@ -1,7 +1,7 @@
 ---
 title: "Rope Simulation in C++"
 summary: "Personal project implemented in group assignment -->"
-tags: ["gameplay","physics"]
+tags: ["gameplay","physics", "group work"]
 ShowToc: false
 TocOpen: true
 Weight: 3
@@ -16,7 +16,7 @@ The simulation uses **nodes** and **springs**.<br/>
 The **nodes** are dynamic physics objects, meaning that they have a mass and are affected by forces added to them.<br/>
 **Springs** connect the nodes and apply force to them based on a relationship between the spring's natural- and current length.
 ![Rope Test](../../gifs/rope2D.gif)
-##### *Showcasing the functionality of changing spring lenfth and adding/removing nodes in run time*
+##### *Showcasing the functionality of changing spring length and adding/removing nodes in run time*
 <br/>
 
 ```c
@@ -45,7 +45,7 @@ myNodes[index2].AddVelocity(-springForce);
 ### The Rope in Game
 The rope is an animated model that I created in Blender.<br/> 
 Based on the simulation data I update the pose of the rope model.<br/>
-I'm happy with how it turned out.
+This is how it turned out.
 
 ![Rope In Game](../../gifs/ropeInGame.gif)
 

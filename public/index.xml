@@ -18,10 +18,17 @@
     </item>
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/posts/about_me/</link>
+      <link>http://localhost:1313/misc/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/about_me/</guid>
+      <guid>http://localhost:1313/misc/about_me/</guid>
       <description>Hi, my name is Gustaf and I&amp;#39;m an aspiring Gameplay Programmer. </description>
+    </item>
+    <item>
+      <title>Boids /w Compute Shaders</title>
+      <link>http://localhost:1313/posts/group_projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/group_projects/</guid>
+      <description>&lt;h3 id=&#34;coming-soon&#34;&gt;Coming soon&lt;/h3&gt;</description>
     </item>
     <item>
       <title>Features / Mods</title>
@@ -59,17 +66,10 @@
       <description>Personal project implemented in group assignment &amp;ndash;&amp;gt;</description>
     </item>
     <item>
-      <title>Best of Group Project</title>
-      <link>http://localhost:1313/other/group_projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/other/group_projects/</guid>
-      <description>Highlights from my contributions to group projects at TGA</description>
-    </item>
-    <item>
       <title>Contact Information</title>
-      <link>http://localhost:1313/other/contact/</link>
+      <link>http://localhost:1313/misc/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/other/contact/</guid>
+      <guid>http://localhost:1313/misc/contact/</guid>
       <description>My contact information</description>
     </item>
     <item>

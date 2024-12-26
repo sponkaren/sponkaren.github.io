@@ -5,6 +5,6 @@ summary: "Integrating Jolt in our own Game Engine"
 tags: ["physics", "engine"]
 ShowToc: false
 TocOpen: true
-Weight: 3
+Weight: 2
 ---
 ### Coming soon
