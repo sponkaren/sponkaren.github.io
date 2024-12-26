@@ -17,18 +17,18 @@
       <description>Read aboout Install and Update instructions and sampled configuration templates</description>
     </item>
     <item>
-      <title>About Me</title>
-      <link>http://localhost:1313/misc/about_me/</link>
+      <title>About Me (WIP)</title>
+      <link>http://localhost:1313/other/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/misc/about_me/</guid>
+      <guid>http://localhost:1313/other/about_me/</guid>
       <description>Hi, my name is Gustaf and I&amp;#39;m an aspiring Gameplay Programmer. </description>
     </item>
     <item>
-      <title>Boids /w Compute Shaders</title>
-      <link>http://localhost:1313/posts/group_projects/</link>
+      <title>Boids /w Compute Shaders (WIP)</title>
+      <link>http://localhost:1313/posts/boids/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/group_projects/</guid>
-      <description>&lt;h3 id=&#34;coming-soon&#34;&gt;Coming soon&lt;/h3&gt;</description>
+      <guid>http://localhost:1313/posts/boids/</guid>
+      <description>Calculating Boids with Compute Shaders in my own Graphics Engine &amp;ndash;&amp;gt;</description>
     </item>
     <item>
       <title>Features / Mods</title>
@@ -52,11 +52,11 @@
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
     </item>
     <item>
-      <title>Physics Engine Integration</title>
+      <title>Physics Library Integration (WIP)</title>
       <link>http://localhost:1313/posts/physics_engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/physics_engine/</guid>
-      <description>Integrating Jolt in our own Game Engine</description>
+      <description>Integrating Jolt in our own Game Engine &amp;ndash;&amp;gt;</description>
     </item>
     <item>
       <title>Rope Simulation in C&#43;&#43;</title>
@@ -64,13 +64,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/rope_sim/</guid>
       <description>Personal project implemented in group assignment &amp;ndash;&amp;gt;</description>
-    </item>
-    <item>
-      <title>Contact Information</title>
-      <link>http://localhost:1313/misc/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/misc/contact/</guid>
-      <description>My contact information</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>

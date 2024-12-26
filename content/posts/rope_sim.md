@@ -1,10 +1,12 @@
 ---
 title: "Rope Simulation in C++"
 summary: "Personal project implemented in group assignment -->"
-tags: ["gameplay","physics", "group work"]
+tags: ["gameplay","physics"]
 ShowToc: false
 TocOpen: true
 Weight: 3
+# cover:
+#   image: "images/ropeCover.png"
 ---
 
 This is a personal project that I ended up adding to a group project at TGA.<br/> 

@@ -7,7 +7,7 @@
   </url><url>
     <loc>http://localhost:1313/misc/about_me/</loc>
   </url><url>
-    <loc>http://localhost:1313/posts/group_projects/</loc>
+    <loc>http://localhost:1313/posts/boids/</loc>
   </url><url>
     <loc>http://localhost:1313/templateposts/papermod/papermod-features/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
@@ -103,8 +103,6 @@
     <loc>http://localhost:1313/tags/engine/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/gameplay/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/group-work/</loc>
   </url><url>
     <loc>http://localhost:1313/misc/</loc>
   </url><url>

@@ -9,18 +9,11 @@
     <copyright>PaperMod Contributors</copyright>
     <atom:link href="http://localhost:1313/other/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About Me</title>
+      <title>About Me (WIP)</title>
       <link>http://localhost:1313/other/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/other/about_me/</guid>
       <description>Hi, my name is Gustaf and I&amp;#39;m an aspiring Gameplay Programmer. </description>
-    </item>
-    <item>
-      <title>Contact Information</title>
-      <link>http://localhost:1313/other/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/other/contact/</guid>
-      <description>My contact information</description>
     </item>
   </channel>
 </rss>
