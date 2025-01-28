@@ -32,7 +32,7 @@ float tooLongBy = spring.vector.Length() - MAX_LENGTH;
 if (0.f < tooLongBy)
 {
     myNodes[index1].posistion -= spring.direction * tooLongBy;
-    spring.vector = myNodes[index1].position - myNodes[inded2].position;
+    spring.vector = myNodes[index1].position - myNodes[index2].position;
 }
 
 float spring.Length = spring.vector.Length() - SPRING_LENGTH;
@@ -58,7 +58,7 @@ This is how it turned out.
 Vector3 forward = springs[springIndex].dir;
 Vector3 up = { 0.f, 1.f, 0.f };
 up = (up - forward.Dot(forward) * forward).GetNormalized();
-Vector3 right = upTemp.Cross(up);
+Vector3 right = up.Cross(forward);
 Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward);
 
 Matrix4x4 jointRotation = CreateRotation(q.GetEulerAnglesDegrees());
