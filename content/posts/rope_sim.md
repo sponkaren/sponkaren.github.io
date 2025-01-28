@@ -57,7 +57,7 @@ This is how it turned out.
 
 Vector3 forward = springs[springIndex].dir;
 Vector3 up = { 0.f, 1.f, 0.f };
-up = (up - forward.Dot(forward) * forward).GetNormalized();
+up = (up - up.Dot(forward) * forward).GetNormalized();
 Vector3 right = up.Cross(forward);
 Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward);
 
