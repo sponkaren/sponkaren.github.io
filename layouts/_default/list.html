@@ -58,16 +58,23 @@
 
 {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
 {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
+  {{- $class = "first-entry" }}
 {{- else if $term }}
-{{- $class = "post-entry tag-entry" }}
+  {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-<article class="{{ $class }}" style="--post-bg: url('{{ .Params.background }}');">
+<article class="{{ $class }}" 
+  style="
+    --post-bg: url('{{ .Params.background | default "images/default-bg.png" }}');
+    --text-color: {{ .Params.text_color | default "#000000" }};
+    --text-size: {{ .Params.text_size | default "16px" }};
+  ">
+  
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent" style="color: var(--text-color); font-size: var(--text-size);">
       {{- .Title }}
       {{- if .Draft }}
       <span class="entry-hint" title="Draft">
@@ -79,16 +86,19 @@
       {{- end }}
     </h2>
   </header>
+
   {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+  <div class="entry-content" style="color: var(--text-color); font-size: var(--text-size);">
+    <p>{{ .Params.custom_text | default .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
   </div>
   {{- end }}
+
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
     {{- partial "post_meta.html" . -}}
   </footer>
   {{- end }}
+
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}

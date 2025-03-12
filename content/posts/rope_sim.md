@@ -5,7 +5,8 @@ tags: ["gameplay","physics"]
 ShowToc: false
 TocOpen: true
 Weight: 5
-background: "../../images/ropeCover.png"
+background: "../../images/ropeCover2.png"
+# text_color: "#692d09"
 ---
 
 This is a personal project that I ended up adding to a group project at TGA.<br/> 
