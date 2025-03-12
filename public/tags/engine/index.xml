@@ -4,16 +4,16 @@
     <title>Engine on Portfolio, Gustaf Engsner</title>
     <link>http://localhost:1313/tags/engine/</link>
     <description>Recent content in Engine on Portfolio, Gustaf Engsner</description>
-    <generator>Hugo -- 0.135.0</generator>
+    <generator>Hugo -- 0.136.3</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
     <atom:link href="http://localhost:1313/tags/engine/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Physics Library Integration</title>
+      <title>JoltPhysics Library Integration</title>
       <link>http://localhost:1313/posts/physics_engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/physics_engine/</guid>
-      <description>Integrating Jolt in our group Game Engine &amp;ndash;&amp;gt;</description>
+      <description>Integrating JoltPhysics in our group Game Engine &amp;ndash;&amp;gt;</description>
     </item>
   </channel>
 </rss>
