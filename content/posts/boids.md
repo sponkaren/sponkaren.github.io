@@ -1,7 +1,6 @@
 ---
-title: "Boids /w Compute Shaders (WIP)"
-# description: "Calculating Boids with Compute Shaders in my own Graphics Engine"
-summary: "Calculating Boids with Compute Shaders in my own Graphics Engine -->"
+title: "Specialization: Boids /w Compute Shaders"
+summary: "Optimizing flocking behavior and turning it into a game in my own Graphics Engine -->"
 tags: ["physics", "gameplay"]
 ShowToc: false
 TocOpen: true

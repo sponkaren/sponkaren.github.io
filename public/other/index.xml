@@ -13,7 +13,14 @@
       <link>http://localhost:1313/other/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/other/about_me/</guid>
-      <description>Hi, my name is Gustaf and I&amp;#39;m an aspiring Gameplay Programmer. </description>
+      <description>Taking a leap after 6 years in video game prodution &amp;ndash;&amp;gt;</description>
+    </item>
+    <item>
+      <title>Contact Information</title>
+      <link>http://localhost:1313/other/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/other/contact/</guid>
+      <description>My contact information</description>
     </item>
   </channel>
 </rss>

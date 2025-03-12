@@ -37,9 +37,10 @@
     position: relative;
     margin-bottom: var(--gap);
     padding: var(--gap);
-    background: var(--entry);
+    background: var(--post-bg, url("../images/default.png"));
     border-radius: var(--radius);
     transition: transform 0.1s;
+    min-height: 200px;
     border: 1px solid var(--border);
 }
 

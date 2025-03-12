@@ -17,18 +17,18 @@
       <description>Read aboout Install and Update instructions and sampled configuration templates</description>
     </item>
     <item>
-      <title>About Me (WIP)</title>
+      <title>About Me</title>
       <link>http://localhost:1313/other/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/other/about_me/</guid>
-      <description>Hi, my name is Gustaf and I&amp;#39;m an aspiring Gameplay Programmer. </description>
+      <description>Taking a leap after 6 years in video game prodution &amp;ndash;&amp;gt;</description>
     </item>
     <item>
-      <title>Boids /w Compute Shaders (WIP)</title>
+      <title>Specialization: Boids /w Compute Shaders</title>
       <link>http://localhost:1313/posts/boids/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/boids/</guid>
-      <description>Calculating Boids with Compute Shaders in my own Graphics Engine &amp;ndash;&amp;gt;</description>
+      <description>Optimizing flocking behavior and turning it into a game in my own Graphics Engine &amp;ndash;&amp;gt;</description>
     </item>
     <item>
       <title>Features / Mods</title>
@@ -52,18 +52,39 @@
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
     </item>
     <item>
-      <title>Physics Library Integration (WIP)</title>
+      <title>JoltPhysics Library Integration</title>
       <link>http://localhost:1313/posts/physics_engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/physics_engine/</guid>
-      <description>Integrating Jolt in our own Game Engine &amp;ndash;&amp;gt;</description>
+      <description>Integrating JoltPhysics in our group Game Engine &amp;ndash;&amp;gt;</description>
+    </item>
+    <item>
+      <title>AI Quit</title>
+      <link>http://localhost:1313/posts/p7_tga/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/p7_tga/</guid>
+      <description>The 6th Game Project at TGA &amp;ndash;&amp;gt;</description>
+    </item>
+    <item>
+      <title>Contact Information</title>
+      <link>http://localhost:1313/other/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/other/contact/</guid>
+      <description>My contact information</description>
+    </item>
+    <item>
+      <title>Cooking Grandma</title>
+      <link>http://localhost:1313/posts/game_jam_2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/game_jam_2024/</guid>
+      <description>Students&amp;rsquo; Choice Winner of TGA Gamejam 2024 &amp;ndash;&amp;gt;</description>
     </item>
     <item>
       <title>Rope Simulation in C&#43;&#43;</title>
       <link>http://localhost:1313/posts/rope_sim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/rope_sim/</guid>
-      <description>Personal project implemented in group assignment &amp;ndash;&amp;gt;</description>
+      <description>Personal project implemented in the 4th Group Game at TGA &amp;ndash;&amp;gt;</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>

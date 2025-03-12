@@ -1,12 +1,11 @@
 ---
 title: "Rope Simulation in C++"
-summary: "Personal project implemented in group assignment -->"
+summary: "Personal project implemented in the 4th Group Game at TGA -->"
 tags: ["gameplay","physics"]
 ShowToc: false
 TocOpen: true
-Weight: 3
-# cover:
-#   image: "images/ropeCover.png"
+Weight: 5
+background: "../../images/ropeCover.png"
 ---
 
 This is a personal project that I ended up adding to a group project at TGA.<br/> 
@@ -57,11 +56,11 @@ This is how it turned out.
 
 Vector3 forward = springs[springIndex].dir;
 Vector3 up = { 0.f, 1.f, 0.f };
-up = (up - up.Dot(forward) * forward).GetNormalized();
-Vector3 right = up.Cross(forward);
-Quaternion q = CreateFromOrthonormalBasisVectors(right, up, forward);
+Vector3 right = (up.Cross(forward)).GetNormalized();
+up = forward.cross(right);
+Quaternion quat = CreateFromOrthonormalBasisVectors(right, up, forward);
 
-Matrix4x4 jointRotation = CreateRotation(q.GetEulerAnglesDegrees());
+Matrix4x4 jointRotation = CreateRotation(quat.GetEulerAnglesDegrees());
 Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position);
 modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition;
 ```
