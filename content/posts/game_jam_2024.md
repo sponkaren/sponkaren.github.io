@@ -5,6 +5,11 @@ tags: ["gameplay"]
 ShowToc: false
 TocOpen: true
 Weight: 4
+background: "../../images/cookingGrandma.png"
+text_color: "#FFFFFF"
 ---
-
-### Coming soon
+| |  |
+|----------------------------|------------|
+| **Type:**     |3 day Game Jam at The Game Assembly|
+| **Engine:**   |Unity|
+| **Intent:**   |Have fun and develop iteratively| 

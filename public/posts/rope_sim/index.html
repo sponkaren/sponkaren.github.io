@@ -97,8 +97,8 @@
   "keywords": [
     "gameplay", "physics"
   ],
-  "articleBody": "This is a personal project that I ended up adding to a group project at TGA. I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine. Here’s a quick summary of how it works.\nThe Simulation The simulation uses nodes and springs. The nodes are dynamic physics objects, meaning that they have a mass and are affected by forces added to them. Springs connect the nodes and apply force to them based on a relationship between the spring’s natural- and current length. Showcasing the functionality of changing spring length and adding/removing nodes in run time // Looping over the nodes, calculating force added by springs // index1, index2 - Indexes of nodes connected to the spring spring.vector = myNodes[index1].position - myNodes[index2].position; spring.direction = spring.vector.GetNormalized(); float tooLongBy = spring.vector.Length() - MAX_LENGTH; if (0.f \u003c tooLongBy) { myNodes[index1].posistion -= spring.direction * tooLongBy; spring.vector = myNodes[index1].position - myNodes[index2].position; } float spring.Length = spring.vector.Length() - SPRING_LENGTH; Vector3 springForce = SPRING_STIFFNESS * spring.length * spring.direction; myNodes[index1].AddVelocity(springForce); myNodes[index2].AddVelocity(-springForce); The Rope in Game The rope is an animated model that I created in Blender. Based on the simulation data I update the pose of the rope model. This is how it turned out.\n// Looping over the the skeleton of the rope mesh, // calculating the joint transforms based on the simulation Vector3 forward = springs[springIndex].dir; Vector3 up = { 0.f, 1.f, 0.f }; Vector3 right = (up.Cross(forward)).GetNormalized(); up = forward.cross(right); Quaternion quat = CreateFromOrthonormalBasisVectors(right, up, forward); Matrix4x4 jointRotation = CreateRotation(quat.GetEulerAnglesDegrees()); Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position); modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition; Credits/ inspiration Video going over basic rope simulation\n",
-  "wordCount" : "273",
+  "articleBody": " Type: Personal Project Engine: The Game Engine – The Game Assembly’s in house C++ engine Intent: I was interested in learning more about game physics and decided to implement rope simulation from scratch. This is a personal project that I ended up adding to the 4th game project at The Game Assembly. Here’s a quick summary of how it works.\nThe Simulation The simulation uses nodes and springs. The nodes are dynamic physics objects, meaning that they have a mass and are affected by forces added to them. Springs connect the nodes and apply force to them based on a relationship between the spring’s natural- and current length. Showcasing the functionality of changing spring length and adding/removing nodes in run time // Looping over the nodes, calculating force added by springs // index1, index2 - Indices of the nodes connected to the spring spring.vector = myNodes[index1].position - myNodes[index2].position; spring.direction = spring.vector.GetNormalized(); float tooLongBy = spring.vector.Length() - MAX_LENGTH; if (tooLongBy \u003e 0.f) { myNodes[index1].posistion -= spring.direction * tooLongBy; spring.vector = myNodes[index1].position - myNodes[index2].position; } float spring.Length = spring.vector.Length() - SPRING_LENGTH; Vector3 springForce = SPRING_STIFFNESS * spring.length * spring.direction; myNodes[index1].AddVelocity(springForce); myNodes[index2].AddVelocity(-springForce); The Visualization The rope is an animated model that I created in Blender. Based on the simulation data I update the pose of the skeletal mesh. This is how it turned out.\n// Looping over the the skeleton of the rope mesh, // calculating the joint transforms based on the simulation Vector3 forward = springs[springIndex].dir; Vector3 up = { 0.f, 1.f, 0.f }; Vector3 right = (up.Cross(forward)).GetNormalized(); up = forward.cross(right); Quaternion quat = CreateFromOrthonormalBasisVectors(right, up, forward); Matrix4x4 jointRotation = CreateRotation(quat.GetEulerAnglesDegrees()); Matrix4x4 jointPosition = CreateTranslationMatrix(myNodes[nodeIndex].position); modelPose.JointTransforms[joinIndex] = jointRotation * jointPosition; Credits \u0026 inspiration Video going over basic rope simulation\n",
+  "wordCount" : "287",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
@@ -173,10 +173,31 @@
 
 </div>
   </header> 
-  <div class="post-content"><p>This is a personal project that I ended up adding to a group project at TGA.<br/>
-I was interested in learning more about game physics and decided to implement rope simulation from scratch in the in-house school engine.<br/>
+  <div class="post-content"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Type:</strong></td>
+          <td style="text-align: left">Personal Project</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Engine:</strong></td>
+          <td style="text-align: left">The Game Engine – The Game Assembly&rsquo;s in house C++ engine</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Intent:</strong></td>
+          <td style="text-align: left">I was interested in learning more about game physics and decided to implement rope simulation from scratch.</td>
+      </tr>
+  </tbody>
+</table>
+<p>This is a personal project that I ended up adding to the 4th game project at The Game Assembly.<br/>
 Here&rsquo;s a quick summary of how it works.</p>
-<h3 id="the-simulation">The Simulation<a hidden class="anchor" aria-hidden="true" href="#the-simulation">#</a></h3>
+<h2 id="the-simulation">The Simulation<a hidden class="anchor" aria-hidden="true" href="#the-simulation">#</a></h2>
 <p>The simulation uses <strong>nodes</strong> and <strong>springs</strong>.<br/>
 The <strong>nodes</strong> are dynamic physics objects, meaning that they have a mass and are affected by forces added to them.<br/>
 <strong>Springs</strong> connect the nodes and apply force to them based on a relationship between the spring&rsquo;s natural- and current length.
@@ -185,13 +206,13 @@ The <strong>nodes</strong> are dynamic physics objects, meaning that they have a
 <h5 id="showcasing-the-functionality-of-changing-spring-length-and-addingremoving-nodes-in-run-time"><em>Showcasing the functionality of changing spring length and adding/removing nodes in run time</em><a hidden class="anchor" aria-hidden="true" href="#showcasing-the-functionality-of-changing-spring-length-and-addingremoving-nodes-in-run-time">#</a></h5>
 <br/>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// Looping over the nodes, calculating force added by springs
-</span></span></span><span class="line"><span class="cl"><span class="c1">// index1, index2 - Indexes of nodes connected to the spring
+</span></span></span><span class="line"><span class="cl"><span class="c1">// index1, index2 - Indices of the nodes connected to the spring
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="n">spring</span><span class="p">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">position</span> <span class="o">-</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index2</span><span class="p">].</span><span class="n">position</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">spring</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">spring</span><span class="p">.</span><span class="n">vector</span><span class="p">.</span><span class="nf">GetNormalized</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">tooLongBy</span> <span class="o">=</span> <span class="n">spring</span><span class="p">.</span><span class="n">vector</span><span class="p">.</span><span class="nf">Length</span><span class="p">()</span> <span class="o">-</span> <span class="n">MAX_LENGTH</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="mf">0.f</span> <span class="o">&lt;</span> <span class="n">tooLongBy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">tooLongBy</span> <span class="o">&gt;</span> <span class="mf">0.f</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">posistion</span> <span class="o">-=</span> <span class="n">spring</span><span class="p">.</span><span class="n">direction</span> <span class="o">*</span> <span class="n">tooLongBy</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">spring</span><span class="p">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="n">position</span> <span class="o">-</span> <span class="n">myNodes</span><span class="p">[</span><span class="n">index2</span><span class="p">].</span><span class="n">position</span><span class="p">;</span>
@@ -203,9 +224,9 @@ The <strong>nodes</strong> are dynamic physics objects, meaning that they have a
 </span></span><span class="line"><span class="cl"><span class="n">myNodes</span><span class="p">[</span><span class="n">index1</span><span class="p">].</span><span class="nf">AddVelocity</span><span class="p">(</span><span class="n">springForce</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">myNodes</span><span class="p">[</span><span class="n">index2</span><span class="p">].</span><span class="nf">AddVelocity</span><span class="p">(</span><span class="o">-</span><span class="n">springForce</span><span class="p">);</span>
 </span></span></code></pre></div><br/>
-<h3 id="the-rope-in-game">The Rope in Game<a hidden class="anchor" aria-hidden="true" href="#the-rope-in-game">#</a></h3>
+<h2 id="the-visualization">The Visualization<a hidden class="anchor" aria-hidden="true" href="#the-visualization">#</a></h2>
 <p>The rope is an animated model that I created in Blender.<br/>
-Based on the simulation data I update the pose of the rope model.<br/>
+Based on the simulation data I update the pose of the skeletal mesh.<br/>
 This is how it turned out.</p>
 <p><img loading="lazy" src="../../gifs/ropeInGame.gif" alt="Rope In Game"  />
 </p>
@@ -221,7 +242,7 @@ This is how it turned out.</p>
 </span></span><span class="line"><span class="cl"><span class="n">Matrix4x4</span> <span class="n">jointRotation</span> <span class="o">=</span> <span class="nf">CreateRotation</span><span class="p">(</span><span class="n">quat</span><span class="p">.</span><span class="nf">GetEulerAnglesDegrees</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl"><span class="n">Matrix4x4</span> <span class="n">jointPosition</span> <span class="o">=</span> <span class="nf">CreateTranslationMatrix</span><span class="p">(</span><span class="n">myNodes</span><span class="p">[</span><span class="n">nodeIndex</span><span class="p">].</span><span class="n">position</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">modelPose</span><span class="p">.</span><span class="n">JointTransforms</span><span class="p">[</span><span class="n">joinIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">jointRotation</span> <span class="o">*</span> <span class="n">jointPosition</span><span class="p">;</span>
-</span></span></code></pre></div><h3 id="credits-inspiration">Credits/ inspiration<a hidden class="anchor" aria-hidden="true" href="#credits-inspiration">#</a></h3>
+</span></span></code></pre></div><h2 id="credits--inspiration">Credits &amp; inspiration<a hidden class="anchor" aria-hidden="true" href="#credits--inspiration">#</a></h2>
 <p><a href="https://youtu.be/0WaDxYuD9S8?si=kiFzpYAY5c4veVde">Video</a> going over basic rope simulation</p>
 
 
@@ -245,6 +266,11 @@ This is how it turned out.</p>
     </main>
     
 <footer class="footer">
+
+    
+    <div style="text-align: center; padding: 10px; font-size: 14px;">
+        <p>I am part of The Game Assembly’s internship program. As per the agreement between the Games Industry and The Game Assembly, neither student nor company may be in contact with one another regarding internships before April 23rd. Any internship offers can be made on May 5th, at the earliest.</p>
+    </div>
         <span>© <a href="https://github.com/adityatelange/hugo-PaperMod/graphs/contributors">PaperMod Contributors</a></span> · 
 
     <span>
