@@ -10,4 +10,4 @@ Weight: 3
 |----------------------------|------------|
 | **Type:**     |Group project at The Game Assembly|
 | **Engine:**   |Tonic Engine – Our group's C++ engine built from scratch|
-| **Intent:**   |From a programming perspective support emulating the mechanics and feel of [Anger Foot](https://store.steampowered.com/app/1978590/Anger_Foot/), while develop in a way where the whole team is always able to play and contribute to the project| 
+| **Intent:**   |From a programming perspective support emulating the mechanics and feel of [Anger Foot](https://store.steampowered.com/app/1978590/Anger_Foot/), while developing in a way where the whole team is always able to play and contribute to the project| 
